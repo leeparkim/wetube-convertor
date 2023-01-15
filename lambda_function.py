@@ -4,7 +4,7 @@ import subprocess
 import shlex
 import boto3
 
-S3_DESTINATION_BUCKET = "wetube-eunseo"
+S3_DESTINATION_BUCKET = "wetube-video"
 
 
 def handler(event, context):
