@@ -16,7 +16,7 @@ def handler(event, context):
     os.makedirs(f"/tmp/{video_id}", exist_ok=True)
 
     s3_client = boto3.client('s3')
-    ffmpeg_cmd = f"ffmpeg -i \"{s3_source_signed_url}\" -codec: copy -start_number 0 -hls_time 10 " \
+    ffmpeg_cmd = f"ffmpeg -i \"{s3_source_signed_url}\" -vcodec: libx264 -start_number 0 -hls_time 10 " \
                  f"-hls_list_size 0 -hls_segment_filename \'/tmp/{video_id}/{filename}_%d.ts\' " \
                  f"-f hls /tmp/{video_id}/{filename}.m3u8"
 
@@ -37,5 +37,4 @@ def handler(event, context):
         'statusCode': 200,
         'body': json.dumps('Processing complete successfully')
     }
-
 
