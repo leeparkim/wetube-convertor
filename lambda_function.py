@@ -30,8 +30,3 @@ def handler(event, context):
     }
 
 
-handler({
-    'video_id': 1,
-    'filename': 'landing_page_1',
-    'file_ext': 'mp4'
-}, None)
